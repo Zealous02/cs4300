@@ -4,8 +4,6 @@ A list of favorite books (title and author), list slicing to get the first
 three, and a dictionary acting as a basic student database.
 """
 
-# Swap these for your own favorites. The tests adapt to whatever you put here,
-# as long as there are at least three books.
 favorite_books = [
     {"title": "The Hobbit", "author": "J.R.R. Tolkien"},
     {"title": "Dune", "author": "Frank Herbert"},
