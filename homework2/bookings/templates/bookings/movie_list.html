@@ -1,0 +1,25 @@
+{% extends 'bookings/base.html' %}
+{% block title %}Movie List{% endblock %}
+{% block content %}
+<h2 class="mb-4">Now Showing</h2>
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+  {% for movie in movies %}
+    <div class="col">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">{{ movie.title }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">
+            {{ movie.duration }} min &middot; Released {{ movie.release_date|date:"M j, Y" }}
+          </h6>
+          <p class="card-text">{{ movie.description }}</p>
+        </div>
+        <div class="card-footer bg-transparent border-0 pb-3">
+          <a href="{% url 'book_seat' movie.id %}" class="btn btn-primary w-100">Book Now</a>
+        </div>
+      </div>
+    </div>
+  {% empty %}
+    <div class="col-12"><div class="alert alert-info">No movies are showing right now.</div></div>
+  {% endfor %}
+</div>
+{% endblock %}

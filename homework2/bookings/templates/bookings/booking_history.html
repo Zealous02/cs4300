@@ -1,0 +1,30 @@
+{% extends 'bookings/base.html' %}
+{% block title %}Booking History{% endblock %}
+{% block content %}
+<h2 class="mb-4">My Bookings</h2>
+{% if bookings %}
+<div class="table-responsive card shadow-sm">
+  <table class="table table-hover align-middle mb-0">
+    <thead class="table-dark">
+      <tr><th>Movie</th><th>Seat</th><th>Booked on</th><th></th></tr>
+    </thead>
+    <tbody>
+      {% for booking in bookings %}
+      <tr>
+        <td>{{ booking.movie.title }}</td>
+        <td><span class="badge text-bg-primary">{{ booking.seat.seat_number }}</span></td>
+        <td>{{ booking.booking_date|date:"M j, Y g:i A" }}</td>
+        <td class="text-end">
+          <form method="post" action="{% url 'cancel_booking' booking.id %}">{% csrf_token %}
+            <button class="btn btn-sm btn-outline-danger">Cancel</button>
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% else %}
+  <div class="alert alert-info">You have no bookings yet. <a href="{% url 'movie_list' %}">Browse movies</a>.</div>
+{% endif %}
+{% endblock %}
