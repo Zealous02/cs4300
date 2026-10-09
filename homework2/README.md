@@ -3,7 +3,9 @@
 A RESTful movie theater booking app. Users can browse movies, book seats, and see their booking
 history, both through a Bootstrap web UI and through a JSON API.
 
-**Render URL:** _add your URL here after deploying (see "Deployment")_
+**Render URL:** https://movie-theater-booking-wvzd.onrender.com
+
+**GitHub:** https://github.com/Zealous02/cs4300/tree/main/homework2
 
 ## Project structure
 
@@ -68,6 +70,8 @@ coverage run --source=bookings manage.py test && coverage report --omit="*/migra
 ```
 
 Coverage of the `bookings` app is 100%.
+
+The app was run and tested locally in an Anaconda Prompt virtual environment (all tests pass, UI and API work) and is live on Render.
 
 ## Deployment (Render)
 
